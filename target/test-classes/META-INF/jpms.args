@@ -1,0 +1,4 @@
+--patch-module
+com.tugalsan.api.servlet.charset=_
+--add-reads
+com.tugalsan.api.servlet.charset=ALL-UNNAMED
