@@ -2,8 +2,9 @@ package com.tugalsan.api.servlet.charset.server;
 
 import com.tugalsan.api.charset.client.TGS_CharSet;
 import com.tugalsan.api.file.client.TGS_FileTypes;
+import com.tugalsan.api.function.client.maythrow.checkedexceptions.TGS_FuncMTCEUtils;
 import com.tugalsan.api.log.server.*;
-import com.tugalsan.api.unsafe.client.*;
+
 import jakarta.servlet.*;
 import jakarta.servlet.annotation.*;
 import jakarta.servlet.http.*;
@@ -20,7 +21,7 @@ public class TS_SCharSetWebFilterUTF8 implements Filter {
 
     @Override
     public void init(FilterConfig config) {
-        TGS_UnSafe.run(() -> {
+        TGS_FuncMTCEUtils.run(() -> {
             encoding = config.getInitParameter("requestEncoding");
             if (encoding == null) {
                 encoding = TGS_CharSet.cmn().UTF8;
@@ -31,7 +32,7 @@ public class TS_SCharSetWebFilterUTF8 implements Filter {
 
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain next) {
-        TGS_UnSafe.run(() -> {
+        TGS_FuncMTCEUtils.run(() -> {
 
             //REQUEST.COMMON
             if (null == request.getCharacterEncoding()) {
@@ -58,7 +59,7 @@ public class TS_SCharSetWebFilterUTF8 implements Filter {
                 }
                 return;
             }
-            TGS_UnSafe.run(() -> next.doFilter(request, response));//ESCALATE WITHOUT DEF_CHARSET
+            TGS_FuncMTCEUtils.run(() -> next.doFilter(request, response));//ESCALATE WITHOUT DEF_CHARSET
         });
     }
 
