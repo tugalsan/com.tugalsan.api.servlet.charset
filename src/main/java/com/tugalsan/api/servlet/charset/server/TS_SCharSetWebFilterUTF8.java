@@ -1,13 +1,10 @@
 package com.tugalsan.api.servlet.charset.server;
 
-import com.tugalsan.api.charset.client.TGS_CharSet;
-import com.tugalsan.api.file.client.TGS_FileTypes;
-import com.tugalsan.api.function.client.maythrowexceptions.checked.TGS_FuncMTCUtils;
-import com.tugalsan.api.log.server.*;
-
-import jakarta.servlet.*;
-import jakarta.servlet.annotation.*;
-import jakarta.servlet.http.*;
+import module com.tugalsan.api.charset;
+import module com.tugalsan.api.file;
+import module com.tugalsan.api.function;
+import module com.tugalsan.api.log;
+import module jakarta.servlet;
 
 @WebFilter(
         urlPatterns = {"/*"},
